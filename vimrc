@@ -2,6 +2,7 @@ source $VIMRUNTIME/defaults.vim
 
 set number
 set noswapfile
+set visualbell
 
 set tabstop=2
 set shiftwidth=2
@@ -101,6 +102,13 @@ augroup lsp
         \     args: ['serve'],
         \   }
         \ ])
+
+"""     \   #{
+"""     \     name: 'prisma-language-server',
+"""     \     filetype: ['prisma'],
+"""     \     path: 'prisma-language-server',
+"""     \     args: ['--stdio'],
+"""     \   },
 
 augroup END
 
