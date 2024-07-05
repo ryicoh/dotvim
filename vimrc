@@ -54,7 +54,7 @@ function s:lsp_on_attached() abort
 
   nmap <buffer> ga <Cmd>LspCodeAction<CR>
   nmap <buffer> rn <Cmd>LspRename<CR>
-  nmap <buffer> gp <Cmd>LspPeekDefinition<CR>
+  nmap <buffer> gr <Cmd>LspPeekReferences<CR>
   nmap <buffer> gi <Cmd>LspGotoImpl<CR>
   nmap <buffer> <space>q <Cmd>LspDiagShow<CR>
   nmap <buffer> K <Cmd>LspHover<CR>
