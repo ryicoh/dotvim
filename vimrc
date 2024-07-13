@@ -28,18 +28,22 @@ call jetpack#begin()
 
 Jetpack 'tani/vim-jetpack', {'opt': 1}
 
-Jetpack 'github/copilot.vim'
+" Jetpack 'github/copilot.vim'
 Jetpack 'madox2/vim-ai'
+Jetpack 'Exafunction/codeium.vim'
 
 Jetpack 'yegappan/lsp'
 Jetpack 'yegappan/mru'
 Jetpack 'yegappan/grep'
 
+Jetpack 'tpope/vim-fugitive'
+Jetpack 'tpope/vim-rhubarb'
+
 call jetpack#end()
 
-let g:copilot_filetypes = {
-      \ '*': v:true,
-      \ }
+" let g:copilot_filetypes = {
+"       \ '*': v:true,
+"       \ }
 
 nmap <space>h <Cmd>MRU<CR>
 " brew install ripgrep
@@ -53,7 +57,7 @@ function s:lsp_on_attached() abort
   setlocal tagfunc=lsp#lsp#TagFunc
 
   nmap <buffer> ga <Cmd>LspCodeAction<CR>
-  nmap <buffer> rn <Cmd>LspRename<CR>
+  nmap <buffer> <leader>rn <Cmd>LspRename<CR>
   nmap <buffer> gr <Cmd>LspPeekReferences<CR>
   nmap <buffer> gi <Cmd>LspGotoImpl<CR>
   nmap <buffer> <space>q <Cmd>LspDiagShow<CR>
@@ -63,7 +67,7 @@ function s:lsp_on_attached() abort
   augroup lsp_format
     autocmd!
 
-    autocmd BufWritePre *.go,*.ts,*.tsx :LspFormat
+    autocmd BufWritePre *.go,*.tf,*.ts,*.tsx :LspFormat
   augroup END
 endfunction
 
