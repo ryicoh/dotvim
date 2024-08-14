@@ -8,6 +8,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+set signcolumn=yes
 set path=**
 cnoreabbrev E Explore
 
@@ -125,6 +126,25 @@ augroup lsp
 """     \     path: 'jedi-language-server',
 """     \     args: [],
 """     \   },
+"""     \   #{
+"""     \     name: 'prisma-language-server',
+"""     \     filetype: ['prisma'],
+"""     \     path: 'prisma-language-server',
+"""     \     args: ['--stdio'],
+"""     \   },
+"""     \   #{
+"""     \     name: 'pylsp',
+"""     \     filetype: ['python'],
+"""     \     path: 'pylsp',
+"""     \     args: [],
+"""     \   },
+"""     \   #{
+"""     \     name: 'pyright',
+"""     \     filetype: ['python'],
+"""     \     path: 'pyright-langserver',
+"""     \     args: ['--stdio'],
+"""     \   },
+"""     \ ])
 """     \   #{
 """     \     name: 'prisma-language-server',
 """     \     filetype: ['prisma'],
