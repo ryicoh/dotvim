@@ -13,8 +13,19 @@ cnoreabbrev E Explore
 
 set hlsearch
 noremap <C-l> <Cmd>nohlsearch<CR><C-l>
+set shortmess-=S
 
 colorscheme habamax
+
+set path=""
+
+let path_list = ["src", "tests", "app", "lib", "prisma"]
+
+for path in path_list
+  if isdirectory(path)
+    let &path = &path . ',' . path . '/**'
+  endif
+endfor
 
 let jetpack_dir = expand('~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim')
 if !filereadable(jetpack_dir)
@@ -38,6 +49,7 @@ Jetpack 'yegappan/grep'
 
 Jetpack 'tpope/vim-fugitive'
 Jetpack 'tpope/vim-rhubarb'
+" Jetpack 'vim-denops/denops.vim'
 
 call jetpack#end()
 
@@ -104,9 +116,15 @@ augroup lsp
         \     filetype: ['terraform'],
         \     path: 'terraform-ls',
         \     args: ['serve'],
-        \   }
+        \   },
         \ ])
 
+"""     \   #{
+"""     \     name: 'jedi-language-server',
+"""     \     filetype: ['python'],
+"""     \     path: 'jedi-language-server',
+"""     \     args: [],
+"""     \   },
 """     \   #{
 """     \     name: 'prisma-language-server',
 """     \     filetype: ['prisma'],
